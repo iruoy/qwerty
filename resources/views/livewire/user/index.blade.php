@@ -1,4 +1,6 @@
 <div>
+    <flux:heading size="xl" level="1" class="mb-4">{{ __('Users') }}</flux:heading>
+
     <flux:table :paginate="$this->users">
         <flux:table.columns>
             <flux:table.column sortable :sorted="$sortBy === 'name'" :direction="$sortDirection" wire:click="sort('name')">{{ __('Name') }}</flux:table.column>
@@ -15,16 +17,15 @@
                     <flux:table.cell>{{ $user->email }}</flux:table.cell>
 
                     <flux:table.cell>
-                        <flux:badge size="sm" :color="$user->hasVerifiedEmail() ? 'green' : 'red'" inset="top bottom">
-                            {{-- TODO: Make this an icon--}}
-                            {{ __($user->hasVerifiedEmail() ? 'True' : 'False') }}
+                        <flux:badge size="sm" :color="$user->hasVerifiedEmail() ? 'green' : 'red'" :icon="$user->hasVerifiedEmail() ? 'check' : 'x-mark'" inset="top bottom">
+                            {{ $user->hasVerifiedEmail() ? __('Yes') : __('No') }}
                         </flux:badge>
                     </flux:table.cell>
 
                     <flux:table.cell>{{ $user->created_at }}</flux:table.cell>
 
                     <flux:table.cell>
-                        <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom"></flux:button>
+                        <flux:button size="sm" icon="pencil-square" href="{{ route('users.edit', $user) }}" inset="top bottom">{{ __('Edit') }}</flux:button>
                     </flux:table.cell>
                 </flux:table.row>
             @endforeach

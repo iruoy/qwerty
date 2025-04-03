@@ -16,6 +16,7 @@ class Index extends Component
     use WithPagination;
 
     public $sortBy = 'date';
+
     public $sortDirection = 'desc';
 
     public function sort(string $column): void
@@ -32,7 +33,7 @@ class Index extends Component
     public function users(): LengthAwarePaginator
     {
         return User::query()
-            ->tap(fn($query) => $this->sortBy ? $query->orderBy($this->sortBy, $this->sortDirection) : $query)
+            ->tap(fn ($query) => $this->sortBy ? $query->orderBy($this->sortBy, $this->sortDirection) : $query)
             ->paginate(5);
     }
 
