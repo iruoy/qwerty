@@ -12,6 +12,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 
     Route::get('users', \App\Livewire\User\Index::class)->name('users.index');
+    Route::get('users/create', \App\Livewire\User\Create::class)->name('users.create');
     Route::get('users/{user}/edit', \App\Livewire\User\Edit::class)->name('users.edit');
 });
 

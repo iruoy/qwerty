@@ -1,5 +1,8 @@
 <div>
-    <flux:heading size="xl" level="1" class="mb-4">{{ __('Users') }}</flux:heading>
+    <div class="flex items-center justify-between mb-4">
+        <flux:heading size="xl" level="1">{{ __('Users') }}</flux:heading>
+        <flux:button icon="plus" href="{{ route('users.create') }}">{{ __('New') }}</flux:button>
+    </div>
 
     <flux:table :paginate="$this->users">
         <flux:table.columns>
@@ -24,7 +27,7 @@
 
                     <flux:table.cell>{{ $user->created_at }}</flux:table.cell>
 
-                    <flux:table.cell>
+                    <flux:table.cell class="text-right">
                         <flux:button size="sm" icon="pencil-square" href="{{ route('users.edit', $user) }}" inset="top bottom">{{ __('Edit') }}</flux:button>
                     </flux:table.cell>
                 </flux:table.row>

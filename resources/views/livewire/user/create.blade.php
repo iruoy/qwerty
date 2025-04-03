@@ -1,5 +1,5 @@
 <div>
-    <flux:heading size="xl" level="1" class="mb-4">{{ __('Edit user') }}</flux:heading>
+    <flux:heading size="xl" level="1" class="mb-4">{{ __('Create user') }}</flux:heading>
 
     <div class="max-w-lg">
         <form wire:submit="save" class="grid gap-6">
