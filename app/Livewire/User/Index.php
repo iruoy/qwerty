@@ -15,17 +15,18 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $sortBy = 'date';
+    public $sortBy = "name";
 
-    public $sortDirection = 'desc';
+    public $sortDirection = "asc";
 
     public function sort(string $column): void
     {
         if ($this->sortBy === $column) {
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+            $this->sortDirection =
+                $this->sortDirection === "asc" ? "desc" : "asc";
         } else {
             $this->sortBy = $column;
-            $this->sortDirection = 'asc';
+            $this->sortDirection = "asc";
         }
     }
 
@@ -33,12 +34,16 @@ class Index extends Component
     public function users(): LengthAwarePaginator
     {
         return User::query()
-            ->tap(fn ($query) => $this->sortBy ? $query->orderBy($this->sortBy, $this->sortDirection) : $query)
+            ->tap(
+                fn($query) => $this->sortBy
+                    ? $query->orderBy($this->sortBy, $this->sortDirection)
+                    : $query
+            )
             ->paginate(5);
     }
 
     public function render(): View
     {
-        return view('livewire.user.index');
+        return view("livewire.user.index");
     }
 }
