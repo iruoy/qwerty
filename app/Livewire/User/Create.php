@@ -18,7 +18,7 @@ class Create extends Component
 
         session()->flash('status', __('User successfully created.'));
 
-        redirect()->route('users.index');
+        $this->redirectRoute('users.index', navigate: true);
     }
 
     public function render(): View
