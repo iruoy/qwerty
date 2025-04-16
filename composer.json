@@ -12,6 +12,7 @@
         "php": "^8.4",
         "laravel/framework": "^12.9.2",
         "laravel/pulse": "^1.4.1",
+        "laravel/telescope": "^5.7",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.1.4",
         "livewire/flux-pro": "^2.1.4",
