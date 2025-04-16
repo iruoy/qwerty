@@ -16,9 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        Gate::define("viewPulse", function (User $user) {
-            return $user->id === 1;
-        });
+        //
     }
 
     /**
@@ -27,5 +25,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::shouldBeStrict();
+
+        Gate::define("viewPulse", function (User $user) {
+            return $user->id === 1;
+        });
     }
 }
