@@ -25,8 +25,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::shouldBeStrict();
+        Model::automaticallyEagerLoadRelationships();
 
-        Gate::define("viewPulse", function (User $user) {
+        Gate::define('viewPulse', function (User $user) {
             return $user->id === 1;
         });
     }

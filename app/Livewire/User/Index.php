@@ -15,18 +15,18 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $sortBy = "name";
+    public $sortBy = 'name';
 
-    public $sortDirection = "asc";
+    public $sortDirection = 'asc';
 
     public function sort(string $column): void
     {
         if ($this->sortBy === $column) {
             $this->sortDirection =
-                $this->sortDirection === "asc" ? "desc" : "asc";
+                $this->sortDirection === 'asc' ? 'desc' : 'asc';
         } else {
             $this->sortBy = $column;
-            $this->sortDirection = "asc";
+            $this->sortDirection = 'asc';
         }
     }
 
@@ -35,7 +35,7 @@ class Index extends Component
     {
         return User::query()
             ->tap(
-                fn($query) => $this->sortBy
+                fn ($query) => $this->sortBy
                     ? $query->orderBy($this->sortBy, $this->sortDirection)
                     : $query
             )
@@ -44,6 +44,6 @@ class Index extends Component
 
     public function render(): View
     {
-        return view("livewire.user.index");
+        return view('livewire.user.index');
     }
 }
