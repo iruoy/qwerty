@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import '../../vendor/livewire/flux/dist/flux.css';
-@import "../font/inter.css";
+@import '../fonts/inter.css';
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -38,11 +38,11 @@
 }
 
 :root {
-    --default-font-family: "Inter", sans-serif;
+    --default-font-family: 'Inter', sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
     :root {
-        --default-font-family: "InterVariable", sans-serif;
+        --default-font-family: 'InterVariable', sans-serif;
     }
 }
